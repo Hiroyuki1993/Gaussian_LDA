@@ -7,6 +7,14 @@ Implementation of the paper - <a href="http://rajarshd.github.io/papers/acl2015.
 * Corpus train/test files: Here each line is a document with the words mapped as integers. The integer index of the word in your vocabulary should be equal to the position (line_number) of the word embedding in the embedding file. Please take care of 0-indexing.
 
 
+### Create Embeded Vector
+```
+mkdir vectors
+python2 prepare_vectors.py ../glove/glove.6B.50d.txt ./data/20_news/vocab.txt ./vectors/vectors_news.50.txt
+python2 prepare_vectors.py ../glove/glove.6B.50d.txt ./data/nips/vocab.txt ./vectors/vectors_nips.50.txt
+
+```
+
 ### Running the script
 Checkout run_gaussian_lda.sh. It should be self-explanatory.
 
