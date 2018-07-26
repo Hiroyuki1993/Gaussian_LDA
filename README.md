@@ -8,17 +8,29 @@ Implementation of the paper - <a href="http://rajarshd.github.io/papers/acl2015.
 
 
 ### Create Embeded Vector
+Suppose that you have located [glove pretrained vector file](https://nlp.stanford.edu/projects/glove/) in the parent directory.
+
 ```
 mkdir vectors
 python2 prepare_vectors.py ../glove/glove.6B.50d.txt ./data/20_news/vocab.txt ./vectors/vectors_news.50.txt
 python2 prepare_vectors.py ../glove/glove.6B.50d.txt ./data/nips/vocab.txt ./vectors/vectors_nips.50.txt
-
 ```
 
 ### Running the script
-Checkout run_gaussian_lda.sh. It should be self-explanatory.
+My Environment:  Java SE Development Kit 10.0.2
+Run the demonstration corpus (20_news and nips).
 
-Contact: Rajarshi Das (rajarshi@cs.umass.edu)
+```
+mkdir bin
+./run_gaussian_lda.sh -n 10 -c data/20_news/corpus.train -i vectors/vectors_news.50.txt -d 50 -k 20
+./run_gaussian_lda.sh -n 10 -c data/nips/corpus.train -i vectors/vectors_nips.50.txt -d 50 -k 20
+```
+
+### Looking the results
+
+```
+python2 top_nwords.py data/nips/corpus.train output/D50/I30/K30/GLDA/Jul_26_14_36/table_assignments.txt 30 data/nips/vocab.txt >> topic_topn.txt
+```
 
 Citation
 ```
