@@ -15,6 +15,7 @@ mkdir vectors
 python2 prepare_vectors.py ../glove/glove.6B.50d.txt ./data/20_news/vocab.txt ./vectors/vectors_news.50.txt
 python2 prepare_vectors.py ../glove/glove.6B.50d.txt ./data/nips/vocab.txt ./vectors/vectors_nips.50.txt
 ```
+`prepare_vectors.py` is copied from [karthikncode](https://github.com/karthikncode/Gaussian_LDA).
 
 ### Running the script
 My Environment:  Java SE Development Kit 10.0.2
@@ -29,7 +30,8 @@ mkdir bin
 ### Looking the results
 
 ```
-python2 top_nwords.py data/nips/corpus.train output/D50/I30/K30/GLDA/Jul_26_14_36/table_assignments.txt 30 data/nips/vocab.txt >> topic_topn.txt
+python2 top_n_words.py data/nips/corpus.train output/D50/I30/K30/GLDA/Jul_26_14_36/table_assignments.txt 30 data/nips/vocab.txt >> topic_topn.txt
+python2 top_n_words.py data/20_news/corpus.train output/D50/I20/K50/GLDA/Jul_27_09_45/table_assignments.txt 20 data/20_news/vocab.txt >> topic_20news2.txt
 ```
 
 Citation
